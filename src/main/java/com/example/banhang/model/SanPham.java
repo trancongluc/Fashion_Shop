@@ -18,7 +18,7 @@ public class SanPham {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
     @Column(name = "ma_san_pham")
     private String maSP;
     @Column(name = "ten_san_pham")

@@ -15,7 +15,43 @@
 
 </head>
 <body class="container">
-
+<div class="container mt-5">
+    <h2 class="text-center">Them Khach Hang</h2>
+    <form action="/" method="post">
+        <div class="mb-3 row">
+            <label for="hoTen" class="col-sm-2 col-form-label">Ho ten:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="hoTen" name="hoTen" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="diaChi" class="col-sm-2 col-form-label">Dia chi:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="diaChi" name="diaChi" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="sdt" class="col-sm-2 col-form-label">SDT:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="sdt" name="sdt" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="trangThai" class="col-sm-2 col-form-label">Trang Thai:</label>
+            <div class="col-sm-10">
+                <select class="form-select" id="trangThai" name="trangThai" required>
+                    <option value="Hoat dong">Hoat dong</option>
+                    <option value="Ngung hoat dong">Ngung hoat dong</option>
+                </select>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-sm-10 offset-sm-2">
+                <button type="submit" class="btn btn-primary">Them khach hang</button>
+            </div>
+        </div>
+    </form>
+</div>
 
 <h1 class="text-center">DANH SACH KHACH HANG</h1>
 <table class="table">

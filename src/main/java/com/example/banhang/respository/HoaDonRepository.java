@@ -9,5 +9,6 @@ import java.util.List;
 
 public interface HoaDonRepository extends JpaRepository<HoaDon,Integer> {
     List<HoaDon> findByTrangThaiOrderByNgayTaoDesc(String trangThai);
+    HoaDon findAllById(Integer id);
 
 }
