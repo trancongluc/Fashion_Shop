@@ -181,18 +181,14 @@ public class BanHangController {
         return "redirect:/ban-hang/gio-hang?idHD=" + idHD + "&idKH=" + idKH;
     }
     @GetMapping("/ban-hang/thanh-toan")
-    public String thanhToan(@RequestParam("idHD") Integer idHD,
-                            @ModelAttribute HoaDonChiTiet hoaDonChiTiet
+    public String thanhToan(@RequestParam("idHD") Integer idHD
                             ){
         HoaDon hd = hdRepo.findAllById(idHD);
 
 
         hd.setTrangThai("Da thanh toan");
         hd.setNgaySua(LocalDateTime.now());
-        hoaDonChiTiet.setTrangThai("Da thanh toan");
-        hoaDonChiTiet.setNgaySua(LocalDateTime.now());
         hdRepo.save(hd);
-        hdctRepo.save(hoaDonChiTiet);
         //Database thiếu trường tổng tiền
         return "redirect:/ban-hang";
     }
@@ -203,8 +199,8 @@ public class BanHangController {
                              @RequestParam("soLuong") Integer soLuong,
                              @RequestParam("idKH") Integer idKH) {
         // Tìm kiếm HoaDon và ChiTietSanPham
-        HoaDon hoaDon = hdRepo.findById(idHD).orElse(null);
-        ChiTietSanPham ctsp = ctspRepo.findById(idCTSP).orElse(null);
+        HoaDon hoaDon = hdRepo.findAllById(idHD);
+        ChiTietSanPham ctsp = ctspRepo.findAllById(idCTSP);
 
         if (hoaDon == null || ctsp == null) {
             // Xử lý lỗi nếu không tìm thấy HoaDon hoặc ChiTietSanPham
@@ -229,7 +225,7 @@ public class BanHangController {
             newHdct.setNgaySua(LocalDateTime.now());
             newHdct.setSoLuongMua(soLuong);
             newHdct.setGiaBan(giaBan);
-            newHdct.setTrangThai("Chua thanh toan");
+            newHdct.setTrangThai("Da thanh toan");
             newHdct.setTongTien(soLuong * giaBan);
             hdctRepo.save(newHdct);
         }

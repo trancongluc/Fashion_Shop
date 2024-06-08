@@ -45,7 +45,7 @@
             <td>${hdct.ngayTao}</td>
             <td>${hdct.trangThai}</td>
             <td>
-                <a href="" class="btn btn-primary">Chi tiet</a>
+                <a href="/hoa-don-chi-tiet?idHD=${hdct.hoaDon.id}" class="btn btn-primary">Chi tiet</a>
                 <a href="" class="btn btn-danger">Xoa</a>
             </td>
         </tr>

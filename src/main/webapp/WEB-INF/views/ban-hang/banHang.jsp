@@ -86,8 +86,10 @@
             <div class="col-5">
                 <input type="hidden" name="idKH" value="">
                 <button type="submit" class="btn btn-primary">Tao Hoa Don</button>
+                <a href="/hoa-don" class="btn btn-warning" >Xem Hoa Don</a>
             </div>
         </form>
+
         <form id="hoaDonForm" method="get" action="/ban-hang/gio-hang">
             <input type="hidden" name="idHD" id="idHD" value="">
             <input type="hidden" name="idKH" id="idKH" value="">
@@ -120,52 +122,30 @@
 
             </tbody>
         </table>
-<%--        <div class="center">--%>
-<%--            <nav aria-label="Page navigation example" name="pageNo">--%>
-<%--                <ul class="pagination">--%>
-<%--                    <li class="page-item">--%>
-<%--                        <c:if test="${currentPage > 0}">--%>
-<%--                            <a class="page-link" href="/ban-hang/gio-hang/?idHD=${idHD}&idKH=${idKH}?pageNo=${currentPage - 1}">Previous</a>--%>
-<%--                        </c:if>--%>
-<%--                    </li>--%>
-<%--                    <c:forEach var="i" begin="1" end="${totalPage}">--%>
-<%--                        <li class="page-item ${i == currentPage + 1 ? 'active' : ''}">--%>
-<%--                            <a class="page-link" href="/ban-hang/gio-hang?idHD=${idHD}&idKH=${idKH}?pageNo=${i - 1}">${i}</a>--%>
-<%--                        </li>--%>
-<%--                    </c:forEach>--%>
-<%--                    <li class="page-item">--%>
-<%--                        <c:if test="${currentPage < totalPage - 1}">--%>
-<%--                            <a class="page-link" href="/ban-hang/gio-hang?idHD=${idHD}&idKH=${idKH}?pageNo=${currentPage + 1}">Next</a>--%>
-<%--                        </c:if>--%>
-<%--                    </li>--%>
-<%--                </ul>--%>
-<%--            </nav>--%>
-<%--        </div>--%>
+
         <h2>Gio Hang</h2>
         <table class="table" id="tableGioHang">
             <thead>
             <tr>
-                <td>STT</td>
-                <td>DanhMuc</td>
-                <td>MaSP</td>
-                <td>TenSP</td>
-                <td>MauSac</td>
-                <td>Size</td>
-                <td>So luong</td>
-                <td>Gia ban</td>
-                <td>Tong tien</td>
-                <td>Chuc nang</td>
+                <th>STT</th>
+                <th>DanhMuc</th>
+                <th>IDCTSP</th>
+                <th>MaSP</th>
+                <th>TenSP</th>
+                <th>MauSac</th>
+                <th>Size</th>
+                <th>So luong</th>
+                <th>Gia ban</th>
+                <th>Tong tien</th>
+                <th>Chuc nang</th>
             </tr>
             </thead>
             <tbody>
-
-
             <c:forEach var="hdct" items="${listHDCT}" varStatus="i">
-
-
                 <tr>
                     <td>${i.index+1}</td>
                     <td>${hdct.chiTietSanPham.sanPham.danhMuc.tenDanhMuc}</td>
+                    <td>${hdct.chiTietSanPham.id}</td>
                     <td>${hdct.chiTietSanPham.sanPham.maSP}</td>
                     <td>${hdct.chiTietSanPham.sanPham.tenSP}</td>
                     <td>${hdct.chiTietSanPham.mauSac.tenMau}</td>
@@ -174,13 +154,9 @@
                     <td>${hdct.giaBan}</td>
                     <td>${hdct.soLuongMua * hdct.giaBan}</td>
                     <td>
-                            <%--                        <a href="/ban-hang/gio-hang/delete?idHDCT=${hdct.id}&idHD=${idHD}&idCTSP=${hdct.ChiTietSanPham.soLuongTon}" class="btn btn-danger"--%>
-                            <%--                           type="submit">Xóa</a>--%>
                         <button class="btn btn-danger" type="button"
                                 onclick="showDeleteModal(${hdct.id}, ${hdct.chiTietSanPham.id})">Xóa
                         </button>
-
-
                     </td>
                 </tr>
             </c:forEach>
@@ -276,15 +252,15 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <td>STT</td>
-            <td>DanhMuc</td>
-            <td>ID CTSP</td>
-            <td>Ten san pham</td>
-            <td>Mau sac</td>
-            <td>Size</td>
-            <td>Gia ban</td>
-            <td>So luong ton</td>
-            <td>Trang Thai</td>
+            <th>STT</th>
+            <th>DanhMuc</th>
+            <th>ID CTSP</th>
+            <th>Ten san pham</th>
+            <th>Mau sac</th>
+            <th>Size</th>
+            <th>Gia ban</th>
+            <th>So luong ton</th>
+            <th>Trang Thai</th>
         </tr>
         </thead>
         <tbody>

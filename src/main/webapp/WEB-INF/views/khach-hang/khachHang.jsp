@@ -17,7 +17,7 @@
 <body class="container">
 <div class="container mt-5">
     <h2 class="text-center">Them Khach Hang</h2>
-    <form action="/" method="post">
+    <form action="/khach-hang/add" method="post">
         <div class="mb-3 row">
             <label for="hoTen" class="col-sm-2 col-form-label">Ho ten:</label>
             <div class="col-sm-10">
@@ -76,12 +76,32 @@
             <td>${kh.trangThai}</td>
             <td>
                 <a href="" class="btn btn-primary">Chi tiet</a>
-                <a href="" class="btn btn-danger">Xoa</a>
+                <a href="/khach-hang/delete?idKH=${kh.id}" class="btn btn-danger">Xoa</a>
             </td>
         </tr>
     </c:forEach>
 
 </table>
-
+<div class="center">
+    <nav aria-label="Page navigation example" name="pageNo">
+        <ul class="pagination">
+            <li class="page-item">
+                <c:if test="${currentPage > 0}">
+                    <a class="page-link" href="/khach-hang?pageNo=${currentPage - 1}">Previous</a>
+                </c:if>
+            </li>
+            <c:forEach var="i" begin="1" end="${totalPage}">
+                <li class="page-item ${i == currentPage + 1 ? 'active' : ''}">
+                    <a class="page-link" href="/khach-hang?pageNo=${i - 1}">${i}</a>
+                </li>
+            </c:forEach>
+            <li class="page-item">
+                <c:if test="${currentPage < totalPage - 1}">
+                    <a class="page-link" href="/khach-hang?pageNo=${currentPage + 1}">Next</a>
+                </c:if>
+            </li>
+        </ul>
+    </nav>
+</div>
 </body>
 </html>
